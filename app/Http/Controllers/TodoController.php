@@ -46,7 +46,7 @@ class TodoController extends Controller
         foreach ($todosArr as $item){
             Todo::create($item);
         }
-        return redirect('todo');
+        return redirect()->route('todoAll');
     }
 
     /**
@@ -64,12 +64,12 @@ class TodoController extends Controller
      * Display the specified resource.
      *
      * @param Todo $todo
-     * @param Request $request
+     * @param $id
      * @return Factory|View|Application
      */
-    public function show(Todo $todo, Request $request): Factory|View|Application
+    public function show(Todo $todo, $id): Factory|View|Application
     {
-        $singleTodo = $todo::find($request->id);
+        $singleTodo = $todo::findOrFail($id);
         return view('todo/todo', compact('singleTodo'));
     }
 
