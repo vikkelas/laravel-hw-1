@@ -8,11 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Весь список дел:</h1>
-    <ul>
-        @foreach($todos as $todo)
-            <li><a href={{route('todo.show', $todo->id)}}>{{$todo->title}}</a></li>
-        @endforeach
-    </ul>
+    <div>
+        <h2>name {{$data['name']}} - id {{$data['id']}}</h2>
+        <h3>email - {{$data['email']}}</h3>
+    </div>
 </body>
 </html>
